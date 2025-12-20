@@ -13,8 +13,7 @@ class Plant:
         self.age += 1
 
     def get_info(self):
-        print(self.name + ": " + str(self.height) + "cm, "
-              + str(self.age) + " days old")
+        print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 
 rose = Plant("Rose", 25, 30)

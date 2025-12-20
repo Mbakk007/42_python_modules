@@ -1,5 +1,3 @@
-#!usr/bin/env python3
-
 class Plant:
     def __init__(self, name, height, age):
         self.name = name
@@ -7,11 +5,12 @@ class Plant:
         self.age = age
 
 
-p1 = Plant("Rose", 25, 30)
-p2 = Plant("Sunflower", 80, 45)
-p3 = Plant("Cactus", 15, 120)
-
 print("=== Garden Plant Registry ===")
-print(f"{p1.name}: {p1.height}cm, {p1.age} days old")
-print(f"{p2.name}: {p2.height}cm, {p2.age} days old")
-print(f"{p3.name}: {p3.height}cm, {p3.age} days old")
+
+plant1 = Plant("Rose", 25, 30)
+plant2 = Plant("Sunflower", 80, 45)
+plant3 = Plant("Cactus", 15, 120)
+
+print(f"{plant1.name}: {plant1.height}cm, {plant1.age} days old")
+print(f"{plant2.name}: {plant2.height}cm, {plant2.age} days old")
+print(f"{plant3.name}: {plant3.height}cm, {plant3.age} days old")

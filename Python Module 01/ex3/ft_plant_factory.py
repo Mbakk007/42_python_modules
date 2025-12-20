@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 class Plant:
     def __init__(self, name, height, age):
         self.name = name
@@ -7,9 +5,7 @@ class Plant:
         self.age = age
 
     def get_info(self):
-        print("Created: " + self.name + " (" +
-              str(self.height) + "cm, " +
-              str(self.age) + " days)")
+        print(f"Created: {self.name} ({self.height}cm, {self.age} days)")
 
 
 print("=== Plant Factory Output ===")

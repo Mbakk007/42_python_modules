@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 class SecurePlant:
     def __init__(self, name, height, age):
         self.name = name
@@ -31,9 +29,10 @@ class SecurePlant:
         return self._age
 
     def get_info(self):
-        print("Current plant: " + self.name + " (" +
-              str(self._height) + "cm, " +
-              str(self._age) + " days)")
+        print(
+            f"Current plant: {self.name} "
+            f"({self._height}cm, {self._age} days)"
+        )
 
 
 print("=== Garden Security System ===")
