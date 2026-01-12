@@ -1,4 +1,3 @@
-
 class Plant:
     def __init__(self, name, height):
         self.name = name
@@ -45,13 +44,13 @@ class GardenManager:
         print(f"Added {plant.name} to {self.owner}'s garden")
 
     def help_plants_grow(self):
-        print(f"{self.owner} is helping all plants grow...")
+        print(f"\n{self.owner} is helping all plants grow...")
         for plant in self.plants:
             plant.grow()
             self.stats.record_growth()
 
     def report(self):
-        print(f"=== {self.owner}'s Garden Report ===")
+        print(f"\n=== {self.owner}'s Garden Report ===")
         print("Plants in garden:")
         for plant in self.plants:
             if isinstance(plant, PrizeFlower):
@@ -67,7 +66,7 @@ class GardenManager:
             else:
                 print(f"- {plant.name}: {plant.height}cm")
         print(
-            f"Plants added: {self.stats.plant_count}, "
+            f"\nPlants added: {self.stats.plant_count}, "
             f"Total growth: {self.stats.total_growth}cm"
         )
 
@@ -83,7 +82,7 @@ class GardenManager:
         return gardens
 
 
-print("=== Garden Management System Demo ===")
+print("=== Garden Management System Demo ===\n")
 
 alice, bob = GardenManager.create_garden_network("Alice", "Bob")
 
