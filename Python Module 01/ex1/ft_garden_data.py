@@ -1,5 +1,11 @@
+"""Garden Plant Registry module."""
+
+
 class Plant:
+    """Represents a plant in the garden."""
+
     def __init__(self, name, height, age):
+        """Initialize a Plant instance."""
         self.name = name
         self.height = height
         self.age = age

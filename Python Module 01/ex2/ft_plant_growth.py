@@ -1,18 +1,27 @@
 #!/usr/bin/env python3
 
+"""Simulate the growth of a single plant over a period of time."""
+
+
 class Plant:
+    """Represents a plant in the garden."""
+
     def __init__(self, name, height, age):
+        """Initialize a Plant instance."""
         self.name = name
         self.height = height
         self.age = age
 
     def grow(self):
+        """Increase the plant's height by 1 cm."""
         self.height += 1
 
     def age_one(self):
+        """Increase the plant's age by 1 day."""
         self.age += 1
 
     def get_info(self):
+        """Print the plant's current information."""
         print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 
