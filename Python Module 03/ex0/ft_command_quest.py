@@ -17,8 +17,10 @@ def command_quest() -> None:
     arg_count = total_args - 1
     print(f"Arguments received: {arg_count}")
 
-    for i, arg in enumerate(sys.argv[1:], start=1):
-        print(f"Argument {i}: {arg}")
+    i = 1
+    while i < total_args:
+        print(f"Argument {i}: {sys.argv[i]}")
+        i += 1
 
     print(f"Total arguments: {total_args}")
 
