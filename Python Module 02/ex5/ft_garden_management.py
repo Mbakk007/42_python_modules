@@ -12,7 +12,7 @@ class WaterError(GardenError):
 
 class GardenManager:
     def __init__(self):
-        self.plants = {}  # plant_name -> {"water": int, "sun": int}
+        self.plants = {}
 
     def add_plant(self, plant_name: str, water_level: int,
                   sunlight_hours: int) -> None:

@@ -92,12 +92,13 @@ class GardenManager:
             f"\nPlants added: {self.stats.plant_count}, "
             f"Total growth: {self.stats.total_growth}cm"
         )
-
+    """A staticmethod is a method that belongs to a class but does not use the instance (self) or the class (cls)."""
     @staticmethod
     def validate_height(height):
         """Check if a height value is valid (positive)."""
         return height > 0
 
+    """A classmethod receives the class itself as its first parameter (cls) instead of an instance."""
     @classmethod
     def create_garden_network(cls, *owners):
         """Create multiple GardenManager instances for a network of owners."""

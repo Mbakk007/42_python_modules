@@ -11,7 +11,10 @@ for arg in sys.argv[1:]:
 
 total_items = sum(inventory.values())
 unique_types = len(inventory)
-print("=== Current Inventory ===")
+print("=== Inventory System Analysis ===")
+print("Total items in inventory:", total_items)
+print("Unique item types:", unique_types)
+print("\n=== Current Inventory ===")
 for item, qty in inventory.items():
     percent = qty / total_items * 100
     unit_str = "unit" if qty == 1 else "units"
@@ -30,7 +33,7 @@ if inventory:
             if qty < inventory[least_abundant]:
                 least_abundant = item
 
-    print("=== Inventory Statistics ===")
+    print("\n=== Inventory Statistics ===")
     print(f"Most abundant: {most_abundant} ({inventory[most_abundant]} units)")
     print(f"Least abundant: {least_abundant} ({inventory[least_abundant]}"
           f" units)")
@@ -46,12 +49,20 @@ for item, qty in inventory.items():
     else:
         scarce[item] = qty
 
-print("=== Item Categories ===")
+print("\n=== Item Categories ===")
 print("Moderate:", moderate)
 print("Scarce:", scarce)
 
-#
-#
-#
-#
-#
+need_restock = {}
+print("\n=== Management Suggestions ===")
+for item, qty in inventory.items():
+    if qty <= 1:
+        need_restock[item] = qty
+print("Restock needed:", list(need_restock.keys()))
+
+print("\n=== Dictionary Properties Demo ===")
+print("Dictionary keys:", list(inventory.keys()))
+print("Dictionary values:", list(inventory.values()))
+
+lookup = "True" if 'sword' in inventory else "False"
+print("Sample lookup - 'sword' in inventory:", lookup)

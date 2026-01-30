@@ -13,7 +13,7 @@ x1, y1, z1 = origin
 x2, y2, z2 = position
 
 distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2)
-print(f"Distance between {origin} and {position}: {round(distance, 2)}")
+print(f"Distance between {origin} and {position}: {round(distance, 2)}\n")
 
 # Parse coordinate string
 coord_string = "3,4,0"
@@ -26,7 +26,7 @@ try:
 
     x, y, z = parsed_position
     distance = math.sqrt(x ** 2 + y ** 2 + z ** 2)
-    print(f"Distance between {origin} and {parsed_position}: {distance}")
+    print(f"Distance between {origin} and {parsed_position}: {distance}\n")
 
 except Exception as e:
     print("Error parsing coordinates:", e)
@@ -43,7 +43,7 @@ except Exception as e:
     print("Error details - Type:", type(e).__name__ + ",", "Args:", e.args)
 
 # Tuple unpacking demonstration
-print("Unpacking demonstration:")
+print("\nUnpacking demonstration:")
 
 x, y, z = parsed_position
 print(f"Player at x={x}, y={y}, z={z}")

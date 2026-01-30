@@ -1,4 +1,4 @@
-print("=== Achievement Tracker System ===")
+print("=== Achievement Tracker System ===\n")
 
 # Set Player Achiev.
 alice = set(["first_kill", "level_10", "treasure_hunter", "speed_demon"])
@@ -10,7 +10,7 @@ print("Player alice achievements:", alice)
 print("Player bob achievements:", bob)
 print("Player charlie achievements:", charlie)
 
-print("=== Achievement Analytics ===")
+print("\n=== Achievement Analytics ===")
 
 # Unique achievements. (Union Combines all items across multiple sets)
 all_achievements = alice.union(bob).union(charlie)
@@ -19,7 +19,7 @@ print("Total unique achievements:", len(all_achievements))
 
 # Common achievements. (Inter Finds items shared by all sets)
 common_achievements = alice.intersection(bob).intersection(charlie)
-print("Common to all players:", common_achievements)
+print("\nCommon to all players:", common_achievements)
 
 # Rare achievements
 rare_achievements = set()
@@ -38,7 +38,7 @@ print("Rare achievements (1 player):", rare_achievements)
 
 # comparisons (Difference Finds items present in one set but not another)
 alice_bob_common = alice.intersection(bob)
-print("Alice vs Bob common:", alice_bob_common)
+print("\nAlice vs Bob common:", alice_bob_common)
 
 alice_unique = alice.difference(bob)
 print("Alice unique:", alice_unique)
