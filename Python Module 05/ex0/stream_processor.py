@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, List
+from typing import Any
 
 
 class DataProcessor(ABC):
@@ -21,7 +21,7 @@ class NumericProcessor(DataProcessor):
             return True
         return False
 
-    def process(self, data: List[int]) -> str:
+    def process(self, data: Any) -> str:
         if not self.validate(data):
             raise ValueError("Invalid numeric data")
         try:
@@ -39,7 +39,7 @@ class TextProcessor(DataProcessor):
             return True
         return False
 
-    def process(self, data: str) -> str:
+    def process(self, data: Any) -> str:
         if not self.validate(data):
             raise ValueError("Invalid text data")
         try:
