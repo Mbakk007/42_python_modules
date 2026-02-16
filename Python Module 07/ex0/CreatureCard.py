@@ -1,4 +1,5 @@
 from ex0.Card import Card
+from typing import Dict, Any
 
 
 class CreatureCard(Card):
@@ -10,7 +11,7 @@ class CreatureCard(Card):
         self.attack = attack
         self.health = health
 
-    def play(self, game_state: dict) -> dict:
+    def play(self, game_state: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "card_played": self.name,
             "mana_used": self.cost,

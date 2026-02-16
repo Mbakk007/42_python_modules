@@ -13,15 +13,15 @@ def main():
     print(f"Playable: {fire_dragon.is_playable(available_mana)}")
     play_result = fire_dragon.play(game_state={})
     print(f"Play result: {play_result}")
-    print("Fire Dragon attacks Goblin Warrior:")
+    print("\nFire Dragon attacks Goblin Warrior:")
     goblin_warrior = CreatureCard(name="Goblin Warrior", cost=2,
                                   rarity="Common", attack=3, health=2)
     attack_result = fire_dragon.attack_target(goblin_warrior)
     print(f"Attack result: {attack_result}")
-    print("Testing insufficient mana (3 available):")
+    print("\nTesting insufficient mana (3 available):")
     available_mana = 3
     print(f"Playable: {fire_dragon.is_playable(available_mana)}")
-    print("Abstract pattern successfully demonstrated!")
+    print("\nAbstract pattern successfully demonstrated!")
 
 
 if __name__ == "__main__":
