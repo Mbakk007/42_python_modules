@@ -1,10 +1,13 @@
 from ex0.Card import Card
 from typing import Dict, Any
 import random
+from ex1.SpellCard import SpellCard
+from ex1.ArtifactCard import ArtifactCard
+from ex0.CreatureCard import CreatureCard
 
 
 class Deck:
-    def __init__(self):
+    def __init__(self) -> None:
         self.cards = []
 
     def add_card(self, card: Card) -> None:
@@ -25,12 +28,24 @@ class Deck:
             raise IndexError("Deck is empty")
 
         card = self.cards[0]
-        self.cards.remove(card)
+        self.remove_card(card.name)
         return card
 
     def get_deck_stats(self) -> Dict[str, Any]:
-        stats = {
-            "total_cards": len(self.cards),
-            "card_names": [card.name for card in self.cards]
+        total = len(self.cards)
+        creatures = sum(isinstance(c, CreatureCard) for c in self.cards)
+        spells = sum(isinstance(c, SpellCard) for c in self.cards)
+        artifacts = sum(isinstance(c, ArtifactCard) for c in self.cards)
+
+        avg_cost = 0.0
+        if total > 0:
+            avg_cost = sum(c.cost for c in self.cards) / total
+            avg_cost = float(f"{avg_cost:.1f}")
+
+        return {
+            "total_cards": total,
+            "creatures": creatures,
+            "spells": spells,
+            "artifacts": artifacts,
+            "avg_cost": avg_cost,
         }
-        return stats

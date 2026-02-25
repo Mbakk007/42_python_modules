@@ -5,7 +5,7 @@ from typing import Dict, Any
 class Combatable(ABC):
 
     @abstractmethod
-    def attack(self, target) -> Dict[str, Any]:
+    def attack(self, target: Any) -> Dict[str, Any]:
         pass
 
     @abstractmethod

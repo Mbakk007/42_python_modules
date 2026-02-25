@@ -8,8 +8,8 @@ def main() -> None:
     print("- Combatable: ['attack', 'defend', 'get_combat_stats']")
     print("- Magical: ['cast_spell', 'channel_mana', 'get_magic_stats']")
 
-    elite = EliteCard(name="Arcane Warrior", cost=5, rarity="Legendary",
-                      attack=7, defense=3, mana=4, combat_type="melee")
+    elite = EliteCard(name="Arcane Warrior", cost=4, rarity="Legendary",
+                      attack=7, defense=3, mana=8, combat_type="melee")
 
     print("\nPlaying Arcane Warrior (Elite Card):")
     elite.play(game_state={})

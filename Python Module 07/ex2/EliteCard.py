@@ -14,25 +14,29 @@ class EliteCard(Card, Combatable, Magical):
         self.combat_type = combat_type
 
     def play(self, game_state: Dict[str, Any]) -> Dict[str, Any]:
-        print(f"{self.name} is played.")
         return game_state
 
-    def attack(self, target: str) -> Dict[str, Any]:
+    def attack(self, target: str | Any) -> Dict[str, Any]:
         return {"attacker": self.name, "target": target,
                 "damage": self.attack_power, "combat_type": self.combat_type}
 
     def cast_spell(self, spell_name: str, targets: list) -> Dict[str, Any]:
+        self.mana -= self.cost
         return {"caster": self.name, "spell": spell_name,
-                "targets": targets, "mana_used": self.mana}
+                "targets": targets, "mana_used": self.cost}
 
     def defend(self, incoming_damage: int) -> Dict[str, Any]:
+        damage_blocked = min(self.defense_power, incoming_damage)
+        damage_taken = max(0, incoming_damage - self.defense_power)
         return {"defender": self.name,
-                "damage_taken": (incoming_damage - self.defense_power),
-                "damage_blocked": self.defense_power,
-                "still_alive": True}
+                "damage_taken": damage_taken,
+                "damage_blocked": damage_blocked,
+                "still_alive": True
+                if damage_taken < self.defense_power else False}
 
     def channel_mana(self, amount: int) -> Dict[str, Any]:
-        return {"channeled": amount, "total_mana": self.mana + amount}
+        self.mana += amount
+        return {"channeled": amount, "total_mana": self.mana}
 
     def get_combat_stats(self) -> Dict[str, Any]:
         stats = {"attack": self.attack_power, "defense": self.defense_power}

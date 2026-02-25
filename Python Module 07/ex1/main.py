@@ -16,7 +16,8 @@ def main():
     my_deck.add_card(fire_dragon)
 
     my_deck.shuffle()
-    my_deck.get_deck_stats()
+    stats = my_deck.get_deck_stats()
+    print(f"Deck stats: {stats}")
 
     print("\nDrawing and playing cards:\n")
 
@@ -30,7 +31,7 @@ def main():
         except IndexError:
             break
 
-    print("Polymorphism in action: Same interface, different behaviors:")
+    print("Polymorphism in action: Same interface, different card behaviors!")
 
 
 if __name__ == "__main__":
