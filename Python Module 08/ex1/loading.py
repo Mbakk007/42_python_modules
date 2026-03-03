@@ -2,11 +2,11 @@ import sys
 import importlib
 import importlib.metadata as meta
 
-REQUIRED_LIBS = ["pandas", "numpy", "matplotlib", "requests"]
+REQUIRED_LIBS = ["pandas", "numpy", "matplotlib"]
 
 
 def check_dependencies() -> list:
-    print("LOADING STATUS: Loading programs...")
+    print("LOADING STATUS: Loading programs...\n")
     print("Checking dependencies:")
 
     missing = []
@@ -15,15 +15,12 @@ def check_dependencies() -> list:
         try:
             importlib.import_module(lib)
             version = show_versions(lib)
-            print(version)
             if lib == "pandas":
                 print(f"[OK] {lib} ({version}) - Data manipulation ready")
             elif lib == "numpy":
                 print(f"[OK] {lib} ({version}) - Numerical computing ready")
             elif lib == "matplotlib":
                 print(f"[OK] {lib} ({version}) - Visualization ready")
-            elif lib == "requests":
-                print(f"[OK] {lib} ({version}) - Network access ready")
         except ImportError:
             print(f"[MISSING] {lib}")
             missing.append(lib)
@@ -33,7 +30,7 @@ def check_dependencies() -> list:
 
 def show_versions(package):
     try:
-        print(meta.version(package))
+        return meta.version(package)
     except Exception:
         print(package, "not installed")
 
@@ -47,7 +44,26 @@ def show_install_help(missing):
 
 
 def analyze_data():
-    print("Analysis complete!")
+    print("\nAnalyzing Matrix data...")
+
+    import numpy
+    import pandas
+    import matplotlib.pyplot
+
+    data_points = 1000
+    print(f"Processing {data_points} data points...")
+
+    numpy.random.seed(42)
+    signal = numpy.random.randint(0, 100, size=data_points)
+
+    df = pandas.DataFrame({"signal": signal})
+    print("Generating visualization...")
+
+    matplotlib.pyplot.plot(df["signal"])
+    matplotlib.pyplot.savefig("matrix_analysis.png")
+    matplotlib.pyplot.close()
+
+    print("\nAnalysis complete!")
     print("Results saved to: matrix_analysis.png")
 
 

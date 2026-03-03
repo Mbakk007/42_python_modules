@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "matrix-loading"
+version = "0.1.0"
+description = ""
+authors = ["ael-bakk"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = ">=3.0.1,<4.0.0"
+numpy = ">=2.4.2,<3.0.0"
+matplotlib = ">=3.10.8,<4.0.0"
+requests = ">=2.31,<3.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
