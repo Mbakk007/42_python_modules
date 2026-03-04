@@ -33,7 +33,7 @@ class SpaceMission(BaseModel):
 
 
 @model_validator(mode="after")
-def validate_mission(mission: SpaceMission):
+def validate_mission(mission: SpaceMission) -> SpaceMission:
     if not mission.mission_id.startswith("M"):
         raise ValueError("Mission ID must start with 'M'.")
     for crew in mission.crew:

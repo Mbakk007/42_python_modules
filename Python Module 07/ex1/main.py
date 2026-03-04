@@ -2,7 +2,7 @@ from ex0 import CreatureCard
 from ex1 import SpellCard, Deck, ArtifactCard
 
 
-def main():
+def main() -> None:
     print("\n=== DataDeck Deck Builder ===\n")
     lightning_bolt = SpellCard("Lightning Bolt", 3,
                                "Common", "Deal 3 damage to target")

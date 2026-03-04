@@ -28,14 +28,14 @@ def check_dependencies() -> list:
     return missing
 
 
-def show_versions(package):
+def show_versions(package) -> str:
     try:
         return meta.version(package)
     except Exception:
-        print(package, "not installed")
+        return f"{package} not installed"
 
 
-def show_install_help(missing):
+def show_install_help(missing) -> None:
     print(f"\nMissing dependencies: {missing}")
     print("\nInstall with pip:")
     print("  pip install -r requirements.txt")
@@ -43,7 +43,7 @@ def show_install_help(missing):
     print("  poetry install")
 
 
-def analyze_data():
+def analyze_data() -> None:
     print("\nAnalyzing Matrix data...")
 
     import numpy
@@ -67,7 +67,7 @@ def analyze_data():
     print("Results saved to: matrix_analysis.png")
 
 
-def main():
+def main() -> None:
     missing = check_dependencies()
 
     if missing:
