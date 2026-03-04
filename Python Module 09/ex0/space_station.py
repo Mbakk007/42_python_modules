@@ -49,7 +49,7 @@ def main():
             crew_size=50,
             power_level=85.5,
             oxygen_level=92.3,
-            last_maintenance=datetime.fromisoformat("2024-05-01T12:00:00Z"),
+            last_maintenance=datetime.now(),
             is_operational=True,
         )
     except ValidationError as e:
