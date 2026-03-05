@@ -5,25 +5,6 @@ from typing import Callable, Tuple
                 any number of arguments and keyword arguments."""
 
 
-"""Implementation Requirements
-spell_combiner(spell1, spell2) - Combine two spells:
-• Return a new function that calls both spells with the same arguments
-• The combined spell should return a tuple of both results
-• Example: combined = spell_combiner(fireball, heal)
-power_amplifier(base_spell, multiplier) - Amplify spell power:
-• Return a new function that multiplies the base spell's result by multiplier
-• Assume base spell returns a number (damage, healing, etc.)
-• Example: mega_fireball = power_amplifier(fireball, 3)
-conditional_caster(condition, spell) - Cast spell conditionally:
-• Return a function that only casts the spell if condition returns True
-• If condition fails, return "Spell fizzled"
-• Both condition and spell receive the same arguments
-spell_sequence(spells) - Create spell sequence:
-• Return a function that casts all spells in order
-• Each spell receives the same arguments
-• Return a list of all spell results"""
-
-
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
     if not callable(spell1) or not callable(spell2):
         raise ValueError("Both parameters must be callable functions")
@@ -47,3 +28,55 @@ def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
             raise ValueError("Base spell must return a number")
         return result * multiplier
     return amplified_spell
+
+
+def conditional_caster(condition: Callable, spell: Callable) -> Callable:
+    if not callable(spell) or not callable(condition):
+        raise ValueError("Both parameters must be callable functions")
+
+    def cast_spell(*args, **kwargs):
+        if condition(*args, **kwargs):
+            return spell(*args, **kwargs)
+        else:
+            return "Spell fizzled"
+    return cast_spell
+
+
+def spell_sequence(spells: list) -> Callable:
+    for spell in spells:
+        if not callable(spell):
+            raise ValueError("All items in spells must be callable functions")
+
+    def sequence_spell(*args, **kwargs) -> list:
+        results = []
+        for spell in spells:
+            result = spell(*args, **kwargs)
+            results.append(result)
+        return results
+    return sequence_spell
+
+
+if __name__ == "__main__":
+
+    print("\nTesting spell combiner...")
+    combined_spell = spell_combiner(lambda target: f"Fireball hits {target}",
+                                    lambda target: f"Heals {target}")
+    print(combined_spell("Dragon"))
+
+    print("\nTesting power amplifier...")
+    amplified_spell = power_amplifier(lambda: 10, 3)
+    print(amplified_spell())
+
+    print("\nTesting conditional caster...")
+    true_condition = conditional_caster(lambda: True, lambda: "executed")
+    print(true_condition())
+    false_condition = conditional_caster(lambda: False, lambda: "executed")
+    print(false_condition())
+
+    print("\nTesting spell sequence...")
+    sequence = spell_sequence([
+        lambda: "First spell",
+        lambda: "Second spell",
+        lambda: "Third spell"
+    ])
+    print(sequence())
